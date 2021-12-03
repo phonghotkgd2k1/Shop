@@ -1,0 +1,46 @@
+Select * FROM table_name
+
+Trong TH lấy data từ bảng khác
+JOIN, LEFT JOIN
+Select table_name.column_1, table_name.column_2, table_name_2.column_1
+From table_name
+JOIN table_name_2 
+ON table_name.id_table_name_2 = table_name_2.id_table_name_2
+WHERE 
+
+SELECT * FROM hot_product HP JOIN product P ON P.id_product = HP.id_product WHERE P.id_brand = $id_brand
+
+
+SELECT product.images, product.name, product.description, product.content, product.quantity, product.price, product.isactive 
+FROM product 
+JOIN hot_product 
+ON product.id_hot_product = hot_product.id_hot_product join hot_product on hot_product.id_product = product.id_product
+
+SELECT product.images, product.name, product.description, product.content, product_stock.quantity, product.price, product.isactive 
+FROM hot_product 
+JOIN product 
+ON hot_product.id_product = product.id_product join product_stock on product_stock.id_product = product.id_product
+
+
+
+
+SELECT product.images, product.name, product.isactive
+FROM product JOIN images
+ON product.id_images =images.id_images
+
+SELECT customer_info.address, customer_info.phone, customer_info.email
+FROM bill B INNER JOIN customer_info CI ON B.id_customer_info = CI.id_customer_info
+
+
+SELECT customer_info.address, customer_info.phone, customer_info.email
+FROM feedback F INNER JOIN customer_info CI ON F.id_customer_info = CI.id_customer_info
+                INNER JOIN admmin ON feedback.id_admin 
+
+
+
+1. Để tạo một bản ghi mới thì ta có Form => tạo Form
+2. Thì cần có Route để chuyển đến Form => Route => gắn Route
+3. Sau khi tạo Route rồi thì cần Controller => tạo Controller
+4. Có Controller rồi thì cần có Request để xác thực data từ Form => tạo Request
+5. Lấy Field từ Form 
+6. Tạo Model để xử lý data => Tạo Model
