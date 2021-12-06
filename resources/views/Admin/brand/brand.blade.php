@@ -42,13 +42,13 @@
                                         <td>{{ $item->description }}</td>
                                         {{-- <td class="text-right">{{ $item->quantity }}</td>
                                         <td class="text-right">@money($item->price)</td> --}}
-                                        {{-- <td>
+                                        <td>
                                             @if ($item->isactive == 0)
                                                 Hoạt động
                                             @else
                                                 Khóa
                                             @endif
-                                        </td> --}}
+                                        </td>
                                         {{-- <td>{{ $item->isactive == 0 ? 'Hoạt động' : 'Khóa' }}</td> <!-- (dk if) ? true : false --> --}}
                                         <td class="text-center">{!! $item->isactive === 0 ? '<i class="fa-2x fas fa-check-circle color--green ml-2" title="Đang sử dụng"></i>' : '<i class="fa-2x fas fa-times-circle color--red ml-2" title="Đang khóa"></i>' !!}</td>
                                         <td>

@@ -24,7 +24,7 @@
                             <thead class=" text-primary">
                                 <tr> {{-- Thay đổi tiêu đề phù hợp --}}
                                     {{-- <th class="text-center">STT</th> --}}
-                                    <th class="text-center">Ảnh</th>
+                                    <th class="text-center" width="100px">Ảnh</th>
                                     {{-- <th class="text-center">Nhãn hiệu</th> --}}
                                     <th class="text-center">Tên sản phẩm</th>
                                     <th class="text-center">Mô tả</th>

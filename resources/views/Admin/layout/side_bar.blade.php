@@ -37,12 +37,12 @@
                     <p>Kho xuất</p>
                 </a>
             </li>
-            {{-- <li>
+            <li>
                 <a href="{{ route('admin.hot_product.index') }}">
                     <i class="tim-icons icon-pin"></i>
-                    <p>Sản phẩm nổi bật</p>
+                    <p>Sản phẩm</p>
                 </a>
-            </li> --}}
+            </li>
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('admin.brand.index') }}">
                 <i class="tim-icons icon-book-bookmark"></i>

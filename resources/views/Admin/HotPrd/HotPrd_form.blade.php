@@ -4,7 +4,7 @@
     <div class="col-md-12">
         <div class="card">
             <div class="card-header">
-                <h5 class="title">{{ isset($HotPrd) ? 'Cập nhật sản phẩm bán chạy' : 'Thêm sản phẩm bán chạy' }}</h5>
+                <h5 class="title">{{ isset($HotPrd) ? 'Cập nhật sản phẩm ' : 'Thêm sản phẩm ' }}</h5>
             </div>
             <div class="card-body">
                 <form action="{{ route('admin.hot_product.HotPrdSubmit') }}" method="post"> <!-- $errors biến đọc lỗi Request trả về,đọc lỗi => $errors('brand') -->
