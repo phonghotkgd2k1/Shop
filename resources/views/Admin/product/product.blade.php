@@ -43,14 +43,14 @@
                                         <td class="text-center">{{ $item->name_brand }}</td>
                                         <td class="text-center">{{ $item->name }}</td>
                                         
-                                         <td>{{ $item->date_nhap }}</td>
+                                         <td class="text-center">{{ $item->date_nhap }}</td>
                                         <td class="text-center">{{ $item->quantity }}</td>
-                                        <td class="text-right">@money($item->price)</td>
+                                        <td class="text-center">@money($item->price)</td>
                                         <td class="text-center">
                                             {!! $item->isactive === 0 ? '<i class="fa-2x fas fa-check-circle color--green ml-2" title="Đang sử dụng">
                                                                          </i>' : '<i class="fa-2x fas fa-times-circle color--red ml-2" title="Đang khóa"></i>' !!}
                                         </td>
-                                        <td>
+                                        <td class="text-center">
                                             <div class="btn-group">
                                                 <button type="button" class="btn btn-danger dropdown-toggle-split"
                                                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

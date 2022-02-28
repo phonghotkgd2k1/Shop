@@ -117,6 +117,3 @@
     </div>
 </div>
 @endsection
-{{-- @php
-    dd($errors)
-@endphp --}}

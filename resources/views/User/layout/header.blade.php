@@ -42,8 +42,8 @@
                         <form>
                             <select class="input-select">
                                 <option value="0">All Product</option>
-                                <option value="1">Váy cưới</option>
-                                <option value="1">Vest cưới</option>
+                                <option value="1">Iphone</option>
+                                <option value="1">SamSung</option>
                             </select>
                             <input class="input" placeholder="Search here">
                             <button class="search-btn">Search</button>
@@ -133,12 +133,12 @@
             <!-- NAV -->
             <ul class="main-nav nav navbar-nav">
                 <li class="active"><a href="#">Home</a></li>
-                <li><a href="#hot_deals">Hot Deals</a></li>
-                <li><a href="#Váy cưới">Váy cưới</a></li>
-                <li><a href="#Vest cưới">Vest cưới</a></li>
-                <li><a href="#Trang sức PNJ">Trang sức PNJ</a></li>
-                <li><a href="#Trang sức DOJi">Trang sức DOJi</a></li>
-                <li><a href="#Accessories">Accessories</a></li>
+                <li><a href="#iphone">Iphone</a></li>
+                <li><a href="#samsung">SamSung</a></li>
+                <li><a href="#Vest cưới">Nokia</a></li>
+                <li><a href="#Trang sức PNJ">Oppo</a></li>
+                <li><a href="#Trang sức DOJi">Realmi</a></li>
+                <li><a href="#Accessories">Vertu</a></li>
             </ul>
             <!-- /NAV -->
         </div>

@@ -56,13 +56,15 @@
 
                 <div class="col-md-3 col-xs-6">
                     <div class="footer">
-                        <h3 class="footer-title">Shop Wedding</h3>
+                        <h3 class="footer-title">Shop Phone</h3>
                         <ul class="footer-links">
-                            <li><a href="#">Váy cưới</a></li>
-                            <li><a href="#">Vest cưới</a></li>
-                            <li><a href="#">Trang sức PNJ</a></li>
-                            <li><a href="#">Trang sức DOJi</a></li>
-                            <li><a href="#">Accessories</a></li>
+                            <li><a href="#">Iphone</a></li>
+                            <li><a href="#">SamSung</a></li>
+                            <li><a href="#">Nokia</a></li>
+                            <li><a href="#">Oppo</a></li>
+                            <li><a href="#">Xiaomi</a></li>
+                            <li><a href="#">Realmi</a></li>
+                            <li><a href="#">Vertu</a></li>
                         </ul>
                     </div>
                 </div>

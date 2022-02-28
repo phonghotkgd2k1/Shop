@@ -37,12 +37,12 @@
                                 @foreach ($allBrand as $item) {{-- Đổi đúng params --}}
                                     <tr> {{-- Thay đổi các cột được lấy ra --}}
                                         {{-- <td><img src="{{ asset("images/$item->images") }}" alt="" width="300px"></td> --}}
-                                        <td>{{ $item->name }}</td>
+                                        <td class="text-center">{{ $item->name }}</td>
                                         {{-- <td>{{ $item->content }}</td> --}}
-                                        <td>{{ $item->description }}</td>
+                                        <td class="text-center">{{ $item->description }}</td>
                                         {{-- <td class="text-right">{{ $item->quantity }}</td>
                                         <td class="text-right">@money($item->price)</td> --}}
-                                        <td>
+                                        <td class="text-center">
                                             @if ($item->isactive == 0)
                                                 Hoạt động
                                             @else

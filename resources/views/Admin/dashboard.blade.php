@@ -2,8 +2,8 @@
 @section('content')
 <div class="wrapper">
       <!-- Navbar -->
-        <div class="row">
-          <!--Kho nhập -->
+        {{-- <div class="row">
+          
           <input type="hidden" value='{{ $nthang1[0]}}' id="nthang1">
           <input type="hidden" value='{{ $nthang2[0]}}' id="nthang2">
           <input type="hidden" value='{{ $nthang3[0] }}' id="nthang3">
@@ -18,7 +18,7 @@
           <input type="hidden" value='{{ $nthang12[0]}}' id="nthang12"> 
 
 
-          <!--kho xuất -->
+          
           <input type="hidden" value='{{ $thang1[0]}}' id="thang1">
           <input type="hidden" value='{{ $thang2[0]}}' id="thang2">
           <input type="hidden" value='{{ $thang3[0] }}' id="thang3">
@@ -67,7 +67,7 @@
                 </div>
               </div>
               <div class="card-body">
-                <div id="chartContainer" style="height: 370px; width: 100%;"></div>
+                <div id="chartContainer" style="height: 370px; width: 100%;"></div> --}}
 <script src="https://canvasjs.com/assets/script/canvasjs.min.js"> </script>
 <script type="text/javascript">
   window.onload = function () {

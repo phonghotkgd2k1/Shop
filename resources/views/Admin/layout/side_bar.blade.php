@@ -8,7 +8,7 @@
                 PGD
             </a>
             <a href="javascript:void(0)" class="simple-text logo-normal">
-                Shop Wedding
+                CellPhoneX
             </a>
         </div>
         <ul class="nav">
@@ -27,7 +27,7 @@
             <li>
                 <a href="{{ route('admin.product.index') }}">
                     <i class="tim-icons icon-atom"></i>
-                    <p>Kho</p>
+                    <p>Sản Phẩm</p>
                 </a>
                 
             </li>
@@ -35,6 +35,12 @@
                 <a href="{{ route('admin.khoxuat.index') }}">
                     <i class="tim-icons icon-bank"></i>
                     <p>Kho xuất</p>
+                </a>
+            </li>
+            <li>
+                <a href="{{ route('admin.khoxuat.index') }}">
+                    <i class="tim-icons icon-bank"></i>
+                    <p>Kho nhập</p>
                 </a>
             </li>
             <li>
