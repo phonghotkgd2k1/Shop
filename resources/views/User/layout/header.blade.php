@@ -7,14 +7,52 @@
     <div id="top-header">
         <div class="container">
             <ul class="header-links pull-left">
-                <li><a href="tel:+84857577732"><i class="fa fa-phone"></i>0857577732</a></li>
-                <li><a href="#"><i class="fa fa-envelope-o"></i> lhongphong175@gmail.com</a></li>
-                <li><a href="#"><i class="fa fa-map-marker"></i> Ly Nhan-Ha Nam</a></li>
+                <li><a href="tel:+84358903368"><i class="fa fa-phone"></i>  </a></li>
+                <li><a href="#"><i class="fa fa-envelope-o"></i> </a></li>
+                <li><a href="#"><i class="fa fa-map-marker"></i> </a></li>
             </ul>
             <ul class="header-links pull-right">
                 <li><a href="#"><i class="fa fa-dollar"></i> VND</a></li>
-                <li><a href="#"><i class="fa fa-user-o"></i>{{SESSION::get('name')}}</a></li>
-                <li><a href="{{asset('user.logout')}}"><i></i> Đăng xuất</a></li>
+                {{-- <li><a href="#"><i class="fa fa-user-o"></i> Tài Khoản</a></li> --}}
+                <li class="dropdown nav-item">
+                    <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
+                        
+                        <b class="caret d-none d-lg-block d-xl-block"></b>
+                        {{-- <p class="d-lg-none">
+                            <i class="fa fa-user-o"></i>Tài Khoản 
+                        </p> --}}
+                        @if (Session::get('username') == null)
+                        <p class="d-lg-none">
+                            <i class="fa fa-user-o"></i>Tài Khoản 
+                        </p>
+                        @endif
+                        @if (Session::get('username') != null)
+                        <p class="d-lg-none">
+                            <i class="fa fa-user-o"></i>{{Session::get('username')}}
+                        </p>
+                        @endif
+                    </a>
+                    <ul class="dropdown-menu dropdown-navbar">
+                        @if (Session::get('username') == null)
+                        <li class="nav-link"><a href="{{ route('account.login') }}" class="nav-item dropdown-item"><i style="font-size:14px;color:rgb(19, 18, 18)">
+                            Đăng nhập
+                         </i></a>
+                         </li>
+                        @endif
+                        @if (Session::get('username') != null)
+                        <li class="nav-link"><a href="#" class="nav-item dropdown-item"><i style="font-size:14px;color:rgb(19, 18, 18)">
+                            {{Session::get('username')}}
+                         </i></a>
+                         </li>
+                        @endif
+                    
+                        <li class="nav-link"><a href="javascript:void(0)" class="nav-item dropdown-item"><i style="font-size:14px;color:rgb(19, 18, 18)">Lịch sử giỏ hàng</i></a>
+                        </li>
+                        <li class="dropdown-divider"></li>
+                        <li class="nav-link"><a href="{{ route('account.logout') }}" class="nav-item dropdown-item"><i style="font-size:14px;color:rgb(19, 18, 18)" >Đăng xuất</i></a>
+                        </li>
+                    </ul>
+                </li>
             </ul>
         </div>
     </div>
@@ -30,7 +68,8 @@
                 <div class="col-md-3">
                     <div class="header-logo">
                         <a href="{{ route('product.index') }}" class="logo">
-                            <img src="{{ asset('/Images/logo4.png') }}" alt="">
+                            {{-- <img src="{{ asset('/Images/logo.png') }}" alt=""> --}}
+                            <img src="{{ asset('/Images/logo.png') }}" alt="">
                         </a>
                     </div>
                 </div>
@@ -39,15 +78,37 @@
                 <!-- SEARCH BAR -->
                 <div class="col-md-6">
                     <div class="header-search">
-                        <form>
+                        <form id="search_mini_form" action="{{ route('product.searchAjax') }}" method="get">
+                            @csrf
                             <select class="input-select">
-                                <option value="0">All Product</option>
-                                <option value="1">Iphone</option>
-                                <option value="1">SamSung</option>
+                                <option value="0"> SmartPhone </option>
+                                <option value="1">SmartPhone 01</option>
+                                <option value="1">SmartPhone 02</option>
                             </select>
-                            <input class="input" placeholder="Search here">
-                            <button class="search-btn">Search</button>
+                            <input type="text" name="searchKey" id="searchKey" class="input" placeholder="Tìm Kiếm Tại Đây">
+                            <button type="submit" class="search-btn">Tìm Kiếm</button>
                         </form>
+                        <style>
+                            #header {
+                                position: relative;
+                            }
+                            .data_search {
+                                background-color: #fff;
+                                max-height: 300px;
+                                overflow: auto;
+                                position: absolute;
+                                z-index: 100;
+                                width: 100%;
+                            }
+                            .data_search a {
+                                display: block;
+                            }
+                        </style>
+                        <div class="data_search" id="search-list" autocomplete="off">
+                            {{-- <a href="">ggffgf</a>
+                            <a href="">ggffgf</a>
+                            <a href="">ggffgf</a> --}}
+                        </div>
                     </div>
                 </div>
                 <!-- /SEARCH BAR -->
@@ -55,21 +116,21 @@
                 <!-- ACCOUNT -->
                 <div class="col-md-3 clearfix">
                     <div class="header-ctn">
-                        <!-- Wishlist -->
+                        {{-- <!-- Wishlist -->
                         <div>
                             <a href="#">
                                 <i class="fa fa-heart-o"></i>
-                                <span>Your Wishlist</span>
-                                <div class="qty">2</div>
+                                <span>Yêu Thích</span>
+                                <div class="qty">0</div>
                             </a>
                         </div>
-                        <!-- /Wishlist -->
+                        <!-- /Wishlist --> --}}
 
                         <!-- Cart -->
                         <div class="dropdown">
                             <a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
                                 <i class="fa fa-shopping-cart"></i>
-                                <span>Your Cart</span>
+                                <span>Giỏ Hàng</span>
                                 <div class="qty">@if(Session::get('cartCustomerInfor') != null) {{ count(Session::get('cartCustomerInfor')) }} @else 0 @endif</div>
                             </a>
                             <div class="cart-dropdown">
@@ -77,7 +138,8 @@
                                     @if(Session::get('cartCustomerInfor') != null)
                                     @foreach (Session::get('cartCustomerInfor') as $item)
                                     @php
-                                        Session::put('totalPrice', Session::get('totalPrice') + $item['quantity']*$item['model']->price)
+                                        Session::put('totalPrice', ((int) Session::get('totalPrice')) + ((int) $item['quantity'])*((int) $item['model']->price))
+                                        
                                     @endphp
                                     <div class="product-widget">
                                         <div class="product-img">
@@ -85,7 +147,11 @@
                                         </div>
                                         <div class="product-body">
                                             <h3 class="product-name"><a href="{{ route('product.viewDetailName', ['id_product'=>$item['id_product']]) }}">{{ $item['model']->name }}</a></h3>
-                                            <h4 class="product-price"><span class="qty">{{ $item['quantity'] }}x</span>@money($item['model']->price)</h4>
+                                            <h4 class="product-price"><span class="qty">{{ $item['quantity'] }}x</span>
+                                                {{-- @money($item['model']->price) --}}
+                                                @money($item['model']->price-($item['model']->price*($item['model']->discount/100))) {{--sua gia tien sau khi ck--}}
+
+                                            </h4>
                                         </div>
                                         <button class="delete"><i class="fa fa-close"></i></button>
                                     </div>
@@ -93,16 +159,21 @@
                                     @endif
                                 </div>
                                 <div class="cart-summary">
-                                    <small>@if(Session::get('cartCustomerInfor') != null) {{ count(Session::get('cartCustomerInfor')) }} @else 0 @endif Item(s) selected</small>
-                                    <h5>SUBTOTAL: @money(Session::get('totalPrice'))</h5>
+                                    <small>@if(Session::get('cartCustomerInfor') != null) {{ count(Session::get('cartCustomerInfor')) }} @else 0 @endif SẢN PHẨM ĐÃ CHỌN</small>
+                                    <h5>TỔNG TIỀN: 
+                                        @money(Session::get('totalPrice'))
+                                        {{-- @money($item['quantity']*($item['model']->price-($item['model']->price*($item['model']->discount/100)))) --}}
+                                        {{-- @money($item['quantity']*($item['model']->price-($item['model']->price*($item['model']->discount/100)))) --}}
+                                    </h5>
                                 </div>
                                 <div class="cart-btns">
-                                    <a href="#">View Cart</a>
-                                    <a href="#">Checkout  <i class="fa fa-arrow-circle-right"></i></a>
+                                    <a href="{{route('cart.viewCart')}}">XEM GIỎ HÀNG</a>
+                                    <a href="{{route('cart.checkout')}}">THANH TOÁN <i class="fa fa-arrow-circle-right"></i></a>
                                 </div>
                             </div>
                         </div>
                         <!-- /Cart -->
+
 
                         <!-- Menu Toogle -->
                         <div class="menu-toggle">
@@ -132,13 +203,13 @@
         <div id="responsive-nav">
             <!-- NAV -->
             <ul class="main-nav nav navbar-nav">
-                <li class="active"><a href="#">Home</a></li>
-                <li><a href="#iphone">Iphone</a></li>
-                <li><a href="#samsung">SamSung</a></li>
-                <li><a href="#Vest cưới">Nokia</a></li>
-                <li><a href="#Trang sức PNJ">Oppo</a></li>
-                <li><a href="#Trang sức DOJi">Realmi</a></li>
-                <li><a href="#Accessories">Vertu</a></li>
+                <li class="active"><a href="http://localhost/smartphone/public/">TRANG CHỦ</a></li>
+                <li><a href="http://localhost/smartphone/public/#hot_deals">TOP SẢN PHẨM</a></li>
+                {{-- <li><a href="#Iphone">Iphone</a></li>
+                <li><a href="#SamSung">SamSung</a></li>
+                <li><a href="#Vsmart">Vsmart</a></li>
+                <li><a href="#Xiaomi">Xiaomi</a></li> --}}
+                <li><a href="http://localhost/smartphone/public/#Accessories">PHỤ KIỆN</a></li>
             </ul>
             <!-- /NAV -->
         </div>

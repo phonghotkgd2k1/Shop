@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
-    <title>CellPhoneX</title>
+    <title>SmartPhoneVN</title>
 
     <!-- Google font -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
@@ -47,7 +47,9 @@
     @yield('content')
     @include('user.layout.footer')
     {{-- @include('user.layout.quickview') --}}
-
+    {{-- @php
+    dd(SESSION::all());    
+@endphp --}}
     <!-- jQuery Plugins -->
     {{-- <script src="http://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script> --}}
     <script src="{{ asset('User/js/jquery.min.js') }}"></script>
@@ -57,9 +59,10 @@
     <script src="{{ asset('User/js/nouislider.min.js') }}"></script>
     <script src="{{ asset('User/js/jquery.zoom.min.js') }}"></script>
     <script src="{{ asset('User/js/main.js') }}"></script>
+    <!-- Thêm chạy chức năng nào đó ? -->
+    {{-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script> --}}
     <script src="{{ asset('User/js/custom.js') }}"></script>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
     <script>
         // alert(`sss`);
         @if (Session::has("msgErr"))
@@ -72,6 +75,16 @@
             // alert(`{{ Session::get("msgSuc") }}`);
             toastr.success(`{{ Session::get("msgSuc") }}`);
         @endif
+
+        //11/10/2021
+        //k có msgErr cho form checkout
+        @if ($errors->any())
+                @foreach ($errors->toArray() as $key => $item)
+                    $(`[id='{{ $key }}']`).addClass('is-invalid');
+                    $(`[id='{{ $key }}']`).parent().append(`<div class="invalid-feedback">{{ $item[0] }}</div>`);
+                @endforeach
+                toastr.error(`Vui lòng điền đủ thông tin !`);
+            @endif
     </script>
     {{-- {!! Toastr::message() !!} --}}
 </body>

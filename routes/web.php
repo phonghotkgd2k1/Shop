@@ -40,6 +40,16 @@ Route::group(["as" => "product."], function () use ($prdController) {
     Route::get("/", "$prdController@index")->name("index");
     Route::get("/viewDetail/{id_product}/{id_color?}/{id_gb?}", "$prdController@viewDetail")->name("viewDetailName");
     Route::post("/checkStockWithQty", "$prdController@checkStockWithQty")->name("checkStockWithQty");
+    Route::get("/searchAjax", "$prdController@searchAjax")->name("searchAjax");
+});
+
+$LoginUser = Account::class;
+Route::group(["prefix" => "account", "as" => "account."], function () use ($LoginUser) {
+    Route::get("/", "$LoginUser@index")->name("login");
+    Route::get("/logout", "$LoginUser@logout")->name("logout");
+    Route::post("/login", "$LoginUser@store")->name("store");
+    Route::get("/create", "$LoginUser@createForm")->name("create");
+    Route::post("/create/{sex?}", "$LoginUser@createSubmit")->name("createSubmit");
 });
 
 Route::group(["prefix" => "cart", "as" => "cart."], function () use ($prdController) {
